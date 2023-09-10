@@ -2,6 +2,7 @@
 include './mysql/db.php';
 
 ?>
+<h1>Eliminar conceptos</h1>
 <?php
 $query = "SHOW TABLES";
 $result = mysqli_query($connection,$query);
@@ -16,7 +17,7 @@ while ($row = mysqli_fetch_assoc($result)){
         <?php
         echo "<tr>";
             echo "<td>Concepto: <input type='text' name='concepto' value='$concepto' readonly/></td>";?>
-           <td><input type="submit" value="Save" name="submit" /></td>
+           <td><input type="submit" value="Borrar" name="borrar" /></td>
         </tr>
     </table>
 </form>
@@ -27,7 +28,7 @@ while ($row = mysqli_fetch_assoc($result)){
 ?>
 <?php 
 
-if(isset($_POST['submit'])){
+if(isset($_POST['borrar'])){
 $concepto =  $_POST['concepto'];
 $query = "DROP TABLE $concepto";
 $result = mysqli_query($connection,$query);
