@@ -18,6 +18,8 @@ while ($row = mysqli_fetch_assoc($result)){
         echo "<tr>";
             echo "<td>Concepto: <input type='text' name='concepto' value='$concepto' readonly/></td>";?>
            <td><input type="submit" value="Borrar" name="borrar" /></td>
+           <?php echo "<td>Concepto: <input type='text' name='concepto' value='$concepto'/></td>";?>
+           <td><input type="submit" value="Actualizar" name="actualizar" /></td>
         </tr>
     </table>
 </form>
