@@ -30,8 +30,8 @@
           <a class="navbar-item" href="http://localhost/contabilidad/index.php?vista=crear_concepto">
             Crear concepto
           </a>
-          <a class="navbar-item" href="http://localhost/contabilidad/index.php?vista=eliminar_concepto">
-            Ver/Eliminar concepto
+          <a class="navbar-item" href="http://localhost/contabilidad/index.php?vista=eliminar-actualizar_concepto">
+            Eliminar o Actualizar conceptos
           </a>
      
         </div>

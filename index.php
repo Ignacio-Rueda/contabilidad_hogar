@@ -19,8 +19,8 @@
     if($_GET['vista']=='crear_concepto'){
         include "./vista/crear_concepto.php";
     }
-    if($_GET['vista']=='eliminar_concepto' ){
-        include "./vista/eliminar_concepto.php";
+    if($_GET['vista']=='eliminar-actualizar_concepto' ){
+        include "./vista/eliminar-actualizar_concepto.php";
     }
     if($_GET['vista']=='ver_conceptos'){
         include "./vista/ver_conceptos.php";
