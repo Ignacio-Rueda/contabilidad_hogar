@@ -29,7 +29,7 @@ while ($row = mysqli_fetch_assoc($result)){
 }
 ?>
 <?php 
-#---------------->BORRAR
+#---------------->BORRAR ELEMENTO
 if(isset($_POST['borrar'])){
 $concepto =  $_POST['concepto'];
 $query = "DROP TABLE $concepto";

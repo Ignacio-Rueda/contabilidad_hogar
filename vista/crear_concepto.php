@@ -17,6 +17,7 @@ if (isset($_POST['submit'])){
   if (!$result){
     die("Consulta fallida".mysqli_error($connection));
   }
+
   $existe = FALSE;
   
   while ($row = mysqli_fetch_assoc($result)){
@@ -28,7 +29,7 @@ if (isset($_POST['submit'])){
   if(!$existe){
     #SI NO EXISTE LA TABLA
     if(isset($_POST['submit'])){
-      $query = "CREATE TABLE $concepto(id int AUTO_INCREMENT PRIMARY KEY,nombre VARCHAR(15) NOT NULL,cantidad DECIMAL(30,2) NOT NULL)";
+      $query = "CREATE TABLE $concepto(id int AUTO_INCREMENT PRIMARY KEY,cantidad DECIMAL(30,2) NOT NULL,fecha DATE NOT NULL)";
       $result = mysqli_query($connection,$query);
       
       if ($result){
@@ -40,6 +41,7 @@ if (isset($_POST['submit'])){
       }
       }
   }
+  
   else{
     echo 'Ya existe el concepto: '.$concepto;
   }
