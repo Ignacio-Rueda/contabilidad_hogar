@@ -2,8 +2,11 @@
 include './mysql/db.php';
 
 ?>
-<h1 class="title">COMPLETA EL FORMULARIO PARA REGISTRAR LAS CANTIDADES</h1>
+<h1>COMPLETA EL FORMULARIO PARA REGISTRAR LAS CANTIDADES</h1>
 <?php
+/*
+MOSTRAMOS CADA UNA DE LAS TABLAS E INSERTAMOS EL GASTO/INGRESO EN LA QUE CORRESPONDA
+*/ 
 $query = "SHOW TABLES";
 $result = mysqli_query($connection,$query);
 #Obtener fecha actual
@@ -45,7 +48,7 @@ $query = "INSERT INTO $tabla (cantidad,fecha) VALUES ($cantidad,$fechaSinGuiones
 $result = mysqli_query($connection,$query);
 
 if ($result){
-  header("Location: http://localhost/contabilidad/index.php?vista=home");
+  header("Location: http://localhost/contabilidad/index.php?vista=formulario");
   exit;
   
 } else {

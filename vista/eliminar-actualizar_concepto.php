@@ -4,6 +4,7 @@ include './mysql/db.php';
 ?>
 <h1>Elimina o Actualiza tus conceptos</h1>
 <?php
+/*ATENCIÓN! ESTE APARTADO ES PARA LAS TABLAS DE LA BBDD (CONCEPTOS) */
 $query = "SHOW TABLES";
 $result = mysqli_query($connection,$query);
 if (!$result){
