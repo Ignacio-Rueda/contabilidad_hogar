@@ -16,6 +16,12 @@
     if($_GET['vista']=='home'){
         include "./vista/home.php";
     }
+    if($_GET['vista']=='formulario'){
+        include "./vista/formulario.php";
+    }
+    if($_GET['vista']=='eliminar-actualizar_formulario'){
+        include "./vista/eliminar-actualizar_formulario.php";
+    }
     if($_GET['vista']=='crear_concepto'){
         include "./vista/crear_concepto.php";
     }

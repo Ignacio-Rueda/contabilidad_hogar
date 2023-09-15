@@ -17,9 +17,20 @@
         Información
       </a>
 
-      <a class="navbar-item">
-        Mostrar gráficos
-      </a>
+      <div class="navbar-item has-dropdown is-hoverable" href="http://localhost/contabilidad/index.php?vista=formulario">
+        <a class="navbar-link">
+          Formulario
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="http://localhost/contabilidad/index.php?vista=formulario">
+            Registro
+          </a>
+          <a class="navbar-item" href="http://localhost/contabilidad/index.php?vista=eliminar-actualizar_formulario">
+            Eliminar-Modificar datos formulario
+          </a>
+     
+        </div>
+      </div>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
