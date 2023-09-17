@@ -7,6 +7,7 @@ include './mysql/db.php';
 /*
 MOSTRAMOS CADA UNA DE LAS TABLAS E INSERTAMOS EL GASTO/INGRESO EN LA QUE CORRESPONDA
 */ 
+ob_start();
 $query = "SHOW TABLES";
 $result = mysqli_query($connection,$query);
 #Obtener fecha actual
@@ -55,3 +56,4 @@ if ($result){
   echo "Error al eliminar el elemento: " . mysqli_error($connection);
 }
 }
+ob_end_flush();

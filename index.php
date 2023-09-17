@@ -16,23 +16,29 @@
     if($_GET['vista']=='home'){
         include "./vista/home.php";
     }
+
     if($_GET['vista']=='formulario'){
         include "./vista/formulario.php";
     }
     if($_GET['vista']=='eliminar-actualizar_formulario'){
         include "./vista/eliminar-actualizar_formulario.php";
     }
+
     if($_GET['vista']=='crear_concepto'){
         include "./vista/crear_concepto.php";
     }
     if($_GET['vista']=='eliminar-actualizar_concepto' ){
         include "./vista/eliminar-actualizar_concepto.php";
     }
-    if($_GET['vista']=='ver_conceptos'){
-        include "./vista/ver_conceptos.php";
+
+
+
+    if($_GET['vista']=='add_usuario' ){
+        include "./vista/add_usuario.php";
     }
-
-
+    if($_GET['vista']=='eliminar-actualizar_usuario' ){
+        include "./vista/eliminar-actualizar_usuario.php";
+    }
 
 ?>    
 </body>

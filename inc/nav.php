@@ -12,10 +12,21 @@
   </div>
 
   <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item">
-        Información
-      </a>
+  <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Usuarios
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="http://localhost/contabilidad/index.php?vista=add_usuario">
+            Añadir usuarios
+          </a>
+          <a class="navbar-item" href="http://localhost/contabilidad/index.php?vista=eliminar-actualizar_usuario">
+            Eliminar o Actualizar usuarios
+          </a>
+     
+        </div>
+      </div>
 
       <div class="navbar-item has-dropdown is-hoverable" href="http://localhost/contabilidad/index.php?vista=formulario">
         <a class="navbar-link">

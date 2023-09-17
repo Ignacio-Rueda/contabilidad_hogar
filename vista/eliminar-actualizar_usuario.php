@@ -13,10 +13,7 @@ if (!$result){
 }
 
 while ($row = mysqli_fetch_assoc($result)){
-  if($row['Tables_in_contabilidad']!='usuarios'){//Para no tener en cuenta la tabla de usuarios
-     $concepto = $row['Tables_in_contabilidad'];
-    }
- ?>
+  $concepto = $row['Tables_in_contabilidad'];?>
   <form action="" method="post">
     <table>
         <?php
