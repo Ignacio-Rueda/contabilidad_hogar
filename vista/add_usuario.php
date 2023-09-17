@@ -14,44 +14,46 @@ include './mysql/db.php';
 /*
 MOSTRAMOS CADA UNA DE LAS TABLAS E INSERTAMOS EL GASTO/INGRESO EN LA QUE CORRESPONDA
 */ 
-ob_start();
 
-//Si no existe la tabla de usuarios, la creamos
+
+
+
+
+
+if (isset($_POST['guardar'])) {
+  ob_start();
+
+  //Si no existe la tabla de usuarios, la creamos
 $query = "CREATE TABLE IF NOT EXISTS usuarios(id int AUTO_INCREMENT PRIMARY KEY,nombre VARCHAR(30) NOT NULL)";
 $result = mysqli_query($connection,$query);
-if (!$result){
-  echo "Error al eliminar el elemento: " . mysqli_error($connection);
-} 
 
 if (!$result){
   die("Consulta fallida".mysqli_error($connection));
 }
 
 
-//COMPROBAMOS SI EL NOMBRE DEL NUEVO USUARIO YA EXISTE EN LA TABLA
-if (isset($_POST['guardar'])) {
   $nombre_usuario = $_POST['nuevo_usuario'];
 
   // Comprobar si el usuario ya existe
-  $query = "SELECT COUNT(*) as count FROM usuarios WHERE nombre = '$nombre_usuario'";
+  $query = "SELECT id FROM usuarios WHERE nombre = '$nombre_usuario'";
   $result = mysqli_query($connection, $query);
 
   if (!$result) {
     die("Consulta fallida: " . mysqli_error($connection));
   }
 
-  $row = mysqli_fetch_assoc($result);
+ 
 
-  if ($row['count'] > 0) {
+  if (mysqli_num_rows($result) > 0) {
     // El usuario ya existe en la tabla
     echo 'Ya existe el usuario: ' . $nombre_usuario;
   } else {
     // Insertar el nuevo usuario
-    $query_insert = "INSERT INTO usuarios (nombre) VALUES ('$nombre_usuario')";
-    $result_insert = mysqli_query($connection, $query_insert);
+    $query = "INSERT INTO usuarios (nombre) VALUES ('$nombre_usuario')";
+    $result = mysqli_query($connection, $query);
 
-    if ($result_insert) {
-      header("Location: http://localhost/contabilidad/index.php?vista=crear_concepto");
+    if ($result) {
+      header("Location: http://localhost/contabilidad/index.php?vista=add_usuario");
       exit;
     } else {
       echo "Error al insertar el elemento: " . mysqli_error($connection);
@@ -60,22 +62,46 @@ if (isset($_POST['guardar'])) {
 }
 
 ?>
+<h1>PUEDES MODIFICAR EL NOMBRE DE TODOS LOS USUARIOS O ELIMINARLOS</h1>
 <?php
-   //OBTENEMOS TODOS LOS ELEMENTOS DE LA TABLA USUARIOS
-   $query = "SELECT * FROM usuarios";
-   $result = mysqli_query($connection,$query);?>
-   <h1>PUEDES MODIFICAR EL NOMBRE DE TODOS LOS USUARIOS O ELIMINARLOS</h1>
    
+   $query = "SELECT * FROM usuarios";
+   $result = mysqli_query($connection,$query);
+   
+   if(isset($_POST['eliminar_usuario'])){
+    $id =  $_POST['id'];
+   $query = "DELETE FROM usuarios WHERE id=$id";
+    $result = mysqli_query($connection,$query);
+    
+    if ($result){
+      header("Location: http://localhost/contabilidad/index.php?vista=add_usuario");
+      exit;
+      
+    } else {
+      echo "Error al eliminar el elemento: " . mysqli_error($connection);
+    }
+    }
+?>
    <?php if (!$result) {
     echo "problem";
-  }
-  while ($row = mysqli_fetch_assoc($result)) {
+  }?>
+  <?php while ($row = mysqli_fetch_assoc($result)) {
     $nombre = $row['nombre'];
-    echo $nombre;
-
-
+    $id = $row['id'];?>
+  <form method='POST' action="">
+    <table>
+  <tr>
+    <td><input type="hidden" name="id" value=<?php echo $id?> ></td>
+    <td>Usuario: <input type="text" name="usuario" value=<?php echo $nombre?> ></td>
+    <td><input type="submit" name="eliminar_usuario" value ="eliminar"></td>
+  </tr>
+    </table>
+  </form>
+  <?php
   }
-?>
+  ?>
+
+
 
 
 
