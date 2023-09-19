@@ -36,9 +36,7 @@
     if($_GET['vista']=='add_usuario' ){
         include "./vista/add_usuario.php";
     }
-    if($_GET['vista']=='eliminar-actualizar_usuario' ){
-        include "./vista/eliminar-actualizar_usuario.php";
-    }
+
 
 ?>    
 </body>

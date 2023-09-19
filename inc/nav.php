@@ -20,11 +20,7 @@
         <div class="navbar-dropdown">
           <a class="navbar-item" href="http://localhost/contabilidad/index.php?vista=add_usuario">
             Añadir usuarios
-          </a>
-          <a class="navbar-item" href="http://localhost/contabilidad/index.php?vista=eliminar-actualizar_usuario">
-            Eliminar o Actualizar usuarios
-          </a>
-     
+          </a>   
         </div>
       </div>
 
